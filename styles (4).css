@@ -1,0 +1,221 @@
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: white;
+  color: #111;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+:root {
+  --white: rgb(255, 255, 255);
+  --black: #000000;
+  --
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border-bottom: 2px solid #000;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.logo {
+  width: 105px;
+  height: auto;
+  object-fit: cover;
+  user-select: none;
+  border-radius: 10%;
+  cursor: pointer;
+}
+
+.top-nav {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.top-link {
+  color: #fff;
+  text-decoration: underline;
+  font-size: 20px;
+  margin: 5px;
+  padding: 8px 12px;
+  transition: color 0.3s ease, background 0.3s ease;
+}
+
+.top-link:hover,
+.top-link:focus-visible {
+  background-color: #575757;
+  transform: scale(1.15);
+}
+
+.toggle-switch {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  border-radius: 30px;
+  background-color: #f1c40f;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  user-select: none;
+}
+
+.toggle-switch .icon {
+  font-size: 16px;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+  user-select: none;
+}
+
+.toggle-switch .sun {
+  opacity: 0.75;
+  color: #ffffff;
+  user-select: none;
+}
+
+.toggle-switch .moon {
+  opacity: 1;
+  color: #f1c40f;
+  text-shadow: 0 0 3px #000000;
+  user-select: none;
+}
+
+.toggle-switch .ball {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: left 0.4s ease;
+  z-index: 1;
+  user-select: none;
+}
+
+.ball.spin {
+  animation: ball-spin 0.45s linear;
+}
+
+.disable-transitions * {
+  transition: none !important;
+}
+
+
+@keyframes ball-spin {
+  from {
+    transform: rotate(0deg);
+    scale: 1.32;
+  }
+  to {
+    transform: rotate(360deg);
+    scale: 100%;
+  }
+}
+
+body.dark-mode {
+  background-color: #111;
+  color: #eee;
+}
+
+body.dark-mode .top-link {
+  color: #ddd;
+}
+
+body.dark-mode .toggle-switch {
+  background-color: #34495e;
+}
+
+body.dark-mode .toggle-switch .sun {
+  opacity: 1;
+  color: #ffffff;
+}
+
+body.dark-mode .toggle-switch .moon {
+  opacity: 0.75;
+  color: #ffffff;
+}
+
+body.dark-mode .toggle-switch .ball {
+  left: 33px;
+}
+
+main {
+  padding: 20px;
+}
+
+.main-title {
+  font-size: 36px;
+  text-align: center;
+}
+
+.sub-title {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+p {
+  max-width: 800px;
+  margin: 0 auto 16px auto;
+  font-size: 18px;
+}
+
+@media (max-width: 800px) {
+  .header {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .logo {
+    width: 100px;  
+  }
+
+  .top-nav {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 450px) {
+  .top-nav{
+    font-size: 14px;
+    text-decoration: underline;
+  }
+}
+
+body.spin {
+  animation: page-spin 1.2s cubic-bezier(0.56, -0.67, 0.25, 1.55);
+}
+
+@keyframes page-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

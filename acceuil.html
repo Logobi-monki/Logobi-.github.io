@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>T sérieux en grand 26</title>
+  <link rel="icon" href="https://api.sherbert.cimpress.io/v2/assets/2GjEGUvbZka2P0sL3ics4~200?signature=c8f3150833d2658e93d1b8ce1de1163f7a0df2af" />
+  <style type="text/css" media="all">
+    body {
+      background-image: url("https://uploads.onecompiler.io/43zmp2s4p/44adbmtbw/emoji%20free%20edition.jpeg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      background-attachment: fixed;
+      background-color: #cccccc;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      color: #111;
+    }
+
+    a.top-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 15px;
+      background-color: #0066cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 18px;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    a.top-link:hover,
+    a.top-link:focus {
+      background-color: #004999;
+    }
+
+    p {
+      background: white;
+      max-width: 800px;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+      font-size: 18px;
+      margin: 0 auto 20px auto;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+  <p>T déjà a l'acceuil bête!</p>
+  <a class="top-link" href="index.html">Retour à la page principale (encore)</a>
+  <br /><br /><br />
+  <a id="accueilButton" class="top-link" title="Cliquez ici pour afficher des informations à propos de vous">Voir une info à propos de vous</a>
+
+  <script type="text/javascript" charset="utf-8">
+    const accueilButton = document.getElementById("accueilButton");
+    accueilButton.addEventListener('click', async function (event) {
+      event.preventDefault();
+      alert("Tu as choisi de cliquer ce bouton.");
+      alert("...");
+      alert("Je vois.");
+
+      try {
+        const response = await fetch("https://api.ipify.org?format=json");
+        const data = await response.json();
+
+        const ip = data.ip;
+        const userAgent = navigator.userAgent;
+        const language = navigator.language;
+        const languages = navigator.languages.join(", ");
+        const screenSize = `${window.screen.width} x ${window.screen.height}`;
+        const windowSize = `${window.innerWidth} x ${window.innerHeight}`;
+        const platform = navigator.platform;
+        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        const cookiesEnabled = navigator.cookieEnabled;
+        const localStorageSupported = (() => {
+          try {
+            const testKey = "__test__";
+            localStorage.setItem(testKey, testKey);
+            localStorage.removeItem(testKey);
+            return true;
+          } catch {
+            return false;
+          }
+        })();
+        const connectionType = navigator.connection?.effectiveType || "inconnu";
+        const screenOrientation = screen.orientation?.type || "inconnu";
+
+        let batteryLevel = "inconnu";
+        if (navigator.getBattery) {
+          const battery = await navigator.getBattery();
+          batteryLevel = Math.round(battery.level * 100) + "%";
+        }
+
+        alert(`Adresse IP : ${ip}`);
+        alert(`Navigateur : ${userAgent}`);
+        alert(`Langue préférée : ${language}`);
+        alert(`Langues : ${languages}`);
+        alert(`Taille écran : ${screenSize}`);
+        alert(`Taille fenêtre : ${windowSize}`);
+        alert(`Plateforme : ${platform}`);
+        alert(`Fuseau horaire approximatif : ${timezone}`);
+        alert(`Cookies activés : ${cookiesEnabled}`);
+        alert(`Stockage local supporté : ${localStorageSupported}`);
+        alert(`Type de connexion réseau : ${connectionType}`);
+        alert(`Orientation écran : ${screenOrientation}`);
+        alert(`Niveau batterie : ${batteryLevel}`);
+
+        alert("Je pourrais continuer...");
+      } catch (err) {
+        alert("Rien d'intéressant ici.");
+        console.error(err);
+      }
+    });
+  </script>
+</body>
+
+</html>
