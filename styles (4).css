@@ -18,6 +18,7 @@ body {
   background-color: white;
   color: #111;
   transition: background-color 0.5s ease, color 0.5s ease;
+  background-color: #f5f7fa;
 }
 
 :root {
@@ -54,17 +55,18 @@ body {
 
 .top-link {
   color: #fff;
-  text-decoration: underline;
+  text-decoration: none;
   font-size: 20px;
   margin: 5px;
   padding: 8px 12px;
-  transition: color 0.3s ease, background 0.3s ease;
+  transition: color 0.3s ease, background 0.3s ease, transform: 0.3s ease-in-out;
 }
 
 .top-link:hover,
 .top-link:focus-visible {
+  border-bottom: 2px solid #fff;
   background-color: #575757;
-  transform: scale(1.15);
+  transform: scale(1.05);
 }
 
 .toggle-switch {
@@ -116,13 +118,17 @@ body {
 }
 
 .ball.spin {
-  animation: ball-spin 0.45s linear;
+  animation: ball-spin 0.5s linear;
 }
 
 .disable-transitions * {
   transition: none !important;
 }
 
+.img {
+  width: 300px;
+  justify-content: flex-end;
+}
 
 @keyframes ball-spin {
   from {
@@ -183,6 +189,50 @@ p {
   font-size: 18px;
 }
 
+.fimage-text {
+  max-width: 1100px;
+  margin: 0 auto 24px auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.fimage-text p {
+  flex: 1;
+  margin: 0;
+}
+
+.fimage-text .img {
+  width: 300px;
+  height: auto;
+  flex-shrink: 0;
+  border-radius: 8px;
+}
+
+.fimage-text > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.credit {
+  margin-top: 4px;
+  font-size: 14px;
+  color: #666;
+}
+
+
+@media (max-width: 768px) {
+  .text-image {
+    flex-direction: column;
+  }
+
+  .text-image .img {
+    width: 100%;
+  }
+}
+
+
 @media (max-width: 800px) {
   .header {
     flex-direction: column;
@@ -190,7 +240,7 @@ p {
   }
 
   .logo {
-    width: 100px;  
+    width: 120px;  
   }
 
   .top-nav {
@@ -200,10 +250,21 @@ p {
   }
 }
 
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav a {
+    margin: 8px 0 0 0;
+  }
+}
+
 @media (max-width: 450px) {
   .top-nav{
-    font-size: 14px;
-    text-decoration: underline;
+    font-size: 16px;
+    text-decoration: none;
   }
 }
 
