@@ -268,6 +268,11 @@ body.spin {
   .top-link {
     border-bottom: 1.5px solid rgba(255, 255, 255, 0.85);
   }
+  
+  .img {
+    width: eval(100vw / 110%);
+    height: auto;
+  }
 }
 
 @media (max-width: 450px) {
